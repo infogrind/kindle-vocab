@@ -10,6 +10,9 @@ def main():
         errmsg = 'You did not enter any terms to look up in the Dictionary.'
         print errmsg
         sys.exit()
+    lookup(searchword)
+
+def lookup(searchword):
     wordrange = (0, len(searchword))
     dictresult = DCSCopyTextDefinition(None, searchword, wordrange)
     if not dictresult:
