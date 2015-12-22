@@ -1,0 +1,4 @@
+#!/bin/sh
+echo ".mode csv
+select word from WORDS;" | sqlite3 /Volumes/Kindle/system/vocabulary/vocab.db \
+    | sort -uf

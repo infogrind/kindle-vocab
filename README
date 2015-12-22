@@ -1,0 +1,15 @@
+How to copy the DB file from the Kindle:
+
+cp /Volumes/Kindle/system/vocabulary/vocab.db .
+
+(If the Kindle doesn't show up on OS X as a USB volume when plugged in, restart
+it while keeping it plugged in. To do this, press the button for 7 seconds and
+select "Restart" in the menu that appears.)
+
+How to export the words from the .db file into a plain text file:
+
+echo ".mode csv
+ select word from WORDS;" | sqlite3 vocab.db > words.txt
+
+Alternatively: use the export_words script, which does exactly that, and save
+its output to a file.
