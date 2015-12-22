@@ -5,12 +5,17 @@ from DictionaryServices import *
 
 def main():
     try:
-        searchword = sys.argv[1].decode('utf-8')
+        infile = sys.argv[1].decode('utf-8')
     except IndexError:
         errmsg = 'You did not enter any terms to look up in the Dictionary.'
         print errmsg
         sys.exit()
-    lookup(searchword)
+    try:
+        with open(infile) as f:
+            for line in f:
+                lookup(line)
+    except IOError:
+        print "Problem reading file " + infile
 
 def lookup(searchword):
     wordrange = (0, len(searchword))
