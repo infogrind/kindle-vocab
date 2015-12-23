@@ -15,6 +15,7 @@ def main():
             for line in f:
                 lookup(line.decode('utf-8'))
                 raw_input("Press Enter to continue...")
+                print ""
     except IOError:
         print "Problem reading file " + infile
 
