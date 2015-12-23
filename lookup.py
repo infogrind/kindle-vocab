@@ -13,7 +13,8 @@ def main():
     try:
         with open(infile) as f:
             for line in f:
-                lookup(line)
+                lookup(line.decode('utf-8'))
+                raw_input("Press Enter to continue...")
     except IOError:
         print "Problem reading file " + infile
 
