@@ -13,7 +13,13 @@ def main():
     try:
         with open(infile) as f:
             for line in f:
-                lookup(line)
+                lookup(line.decode('utf-8'))
+                try:
+                    raw_input("Press Enter to continue...")
+                except KeyboardInterrupt:
+                    print "CTRL-C detected, exiting."
+                    sys.exit()
+                print ""
     except IOError:
         print "Problem reading file " + infile
 
